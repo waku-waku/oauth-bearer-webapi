@@ -1,6 +1,6 @@
 # oauth-bearer-webapi
 
-This WebAPI is on an OAuth2.0 Authorization Bearer Token Usage."
+This WebAPI is on an OAuth2.0 Authorization Bearer Token Usage.
 
 ## custom
 https://openid-foundation-japan.github.io/draft-ietf-oauth-v2.ja.html
