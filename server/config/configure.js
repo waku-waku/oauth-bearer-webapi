@@ -58,8 +58,11 @@ configure.defaultCall = function (app) {
    */
 
   app.use(function (err, req, res, next) {
-  	res.status(500);
-  	res.render('error', { error: err });
+  	if (req.xhr) {
+	  res.status(500).send({ error: 'Something failed!' });
+	} else {
+	  next(err);
+	}
   });
 
 };

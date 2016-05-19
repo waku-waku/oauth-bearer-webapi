@@ -3,6 +3,7 @@
 var express = require('express');
 var models = require('../../models');
 var oauth2 = require('../../lib/oauth2-password-bearer');
+var response = require('../../lib/response');
 
 var router = express.Router();
 
@@ -26,7 +27,7 @@ router.post('/signup', function (req, res) {
 			return oauth2.saveOAuthAccessToken(req.body.email, req.body.client_id, user);
 		})
 		.done(function (msg) {
-			res.json(msg);
+			res.sendjson(msg);
 		});
 });
 
@@ -64,7 +65,7 @@ router.post('/token', function (req, res) {
 			.done(function (refreshToken) {
 				if (!refreshToken) throw new Error('refreshToken is not here.');
 				token.refresh_token = refreshToken.token;
-				res.json(token);
+				res.sendjson(token);
 			});
 	} else {
 		res.status(400);

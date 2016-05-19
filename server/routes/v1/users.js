@@ -2,6 +2,7 @@
 
 var express = require('express');
 var models = require('../../models');
+var response = require('../../lib/response');
 
 var router = express.Router();
 
@@ -10,7 +11,7 @@ var router = express.Router();
  */
 
 router.get('/me', function (req, res, next) {
-	var auth = req.headers.authorization;
+  var auth = req.headers.authorization;
   var bearer = auth.toString().split(' ');
 
 	models.OAuthAccessToken
@@ -20,10 +21,7 @@ router.get('/me', function (req, res, next) {
 			return models.User.findOneAsync({_id: accessToken.user_id});
 		})
 		.done(function (user) {
-			res.json({
-				_id: user._id,
-				email: user.email
-			});
+			res.sendjson(user,['email']);
 		});
 });
 
