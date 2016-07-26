@@ -1,36 +1,39 @@
 {
-	"name": "oauth-bearer-webapi",
-	"version": "0.1.0",
-	"description": "This WebAPI is on an OAuth2.0 Authorization Bearer Token Usage.",
-	"main": "server/index.js",
-	"scripts": {
-		"start": "node server/index",
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/waku-waku/oauth-bearer-webapi.git"
-	},
-	"author": "waku-waku",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/waku-waku/oauth-bearer-webapi/issues"
-	},
-	"homepage": "https://github.com/waku-waku/oauth-bearer-webapi#readme",
-	"devDependencies": {
-		"bcrypt-nodejs": "0.0.3",
-		"bluebird": "^3.4.0",
-		"body-parser": "^1.15.1",
-		"compression": "^1.6.2",
-		"cookie-parser": "^1.4.1",
-		"crypto": "0.0.3",
-		"ejs": "^2.4.1",
-		"express": "^4.13.4",
-		"express-session": "^1.13.0",
-		"method-override": "^2.3.5",
-		"mongoose": "^4.4.17",
-		"morgan": "^1.7.0",
-		"path": "^0.12.7",
-		"underscore": "^1.8.3"
-	}
+  "name": "oauth-bearer-webapi",
+  "version": "0.1.1",
+  "description": "This WebAPI is on an OAuth2.0 Authorization Bearer Token Usage.",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node app",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/waku-waku/oauth-bearer-webapi.git"
+  },
+  "author": "waku-waku",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/waku-waku/oauth-bearer-webapi/issues"
+  },
+  "homepage": "https://github.com/waku-waku/oauth-bearer-webapi#readme",
+  "devDependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "bluebird": "^3.4.0",
+    "body-parser": "^1.15.1",
+    "compression": "^1.6.2",
+    "cookie-parser": "^1.4.1",
+    "crypto": "0.0.3",
+    "ejs": "^2.4.1",
+    "express": "^4.13.4",
+    "express-session": "^1.13.0",
+    "method-override": "^2.3.5",
+    "mongoose": "^4.4.17",
+    "morgan": "^1.7.0",
+    "path": "^0.12.7",
+    "underscore": "^1.8.3"
+  },
+  "dependencies": {
+    "moment": "^2.14.1"
+  }
 }

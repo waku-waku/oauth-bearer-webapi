@@ -1,8 +1,9 @@
 /**
- * Main Application File.
+ * Main Application File
  */
 
 'use strict';
+
 
 
 /**
@@ -12,10 +13,10 @@
 var express = require('express');
 var app = express();
 var mongoose = require('mongoose');
+var router = require('./routes/v1');
 mongoose.Promise = require('bluebird');
 var config = require('./config/environments');
 var header = require('./lib/header.js');
-var router = require('./routes/v1');
 var server = require('http').createServer(app);
 
 
@@ -52,8 +53,21 @@ app.use('/api/v1', router);
 
 
 /**
+ * Test API.
+ */
+
+app.get('/header', function (req,res) {
+	console.log(res.connection._httpMessage.socket._httpMessage);
+	res.json({
+		username: 'test successful!'
+	});
+});
+
+
+/**
  * Start Server.
  */
+
 
 app.setup = server.listen(config.port, config.ip, function() {
 	console.log('Express server listening on %d ...', config.port);

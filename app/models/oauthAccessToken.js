@@ -11,6 +11,7 @@ var OAuthAccessTokensSchema = new mongoose.Schema({
     expire_in: Date
 });
 
+// userの_idに紐付いて,一意のメールアドレスに対にtokenがある感じで
 
 OAuthAccessTokensSchema.methods.setToken = function (email) {
     this.token = crypto.randomBytes(16).toString('hex');

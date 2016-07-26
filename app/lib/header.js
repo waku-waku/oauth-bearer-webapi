@@ -10,7 +10,7 @@ header.accessControlHeaders = function () {
 			'Access-Control-Allow-Headers': 'X-Requested-With, Content-Type',
 			'Cache-Control': 'no-store',
 			'Pragma': 'no-cache'});
-		next();
+		next();	
 	};
 };
 

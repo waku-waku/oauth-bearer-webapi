@@ -7,23 +7,24 @@ var methodOverride = require('method-override');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var mongoose = require('mongoose');
-var ejs = require('ejs');
+// var connectMongo = require('connect-mongo/es5');
+// var passport = require('passport');
 var path = require('path');
 var morgan = require('morgan');
 var config = require('./environments');
 
 var configure = {};
-
+// var MongoStore = connectMongo(session);
 
 configure.defaultCall = function (app) {
 
-	
+
   /**
    * Default call what express server settings.
    */
-
+		
   app.set('views', config.root + '/server/views');
-  app.engine('html', ejs.renderFile);
+  app.engine('html', require('ejs').renderFile);
   app.set('view engine', 'html');
   app.disable('x-powered-by');
   app.use(morgan('dev'));
@@ -41,10 +42,16 @@ configure.defaultCall = function (app) {
   app.use(session({
   	secret: config.secret.session,
   	saveUnintialized: true,
-  	resave: false
+  	resave: false,
+  	// Sessionの永続化
+
+  	// store: new MongoStore({
+  	// 	mongooseConnection: mongoose.connection,
+  	// 	db: 'luna'
+  	// })
   }));
 
-
+  
   /**
    *  Static file.
    */
@@ -56,13 +63,10 @@ configure.defaultCall = function (app) {
   /**
    * Error Handling.
    */
-
+   
   app.use(function (err, req, res, next) {
-  	if (req.xhr) {
-	  res.status(500).send({ error: 'Something failed!' });
-	} else {
-	  next(err);
-	}
+  	res.status(500);
+  	res.render('error', { error: err });
   });
 
 };

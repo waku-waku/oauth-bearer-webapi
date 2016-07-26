@@ -11,7 +11,6 @@ var OAuthRefreshTokensSchema = new mongoose.Schema({
     expire_in: Date
 });
 
-
 OAuthRefreshTokensSchema.methods.setToken = function (email) {
     this.token = crypto.randomBytes(8).toString('hex');
 };
