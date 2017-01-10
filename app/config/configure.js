@@ -1,5 +1,9 @@
 'use strict';
 
+/**
+ * Module dependencies.
+ */
+
 var express = require('express');
 var compression = require('compression');
 var session = require('express-session');
@@ -23,14 +27,14 @@ configure.defaultCall = function (app) {
    * Default call what express server settings.
    */
 		
-  app.set('views', config.root + '/server/views');
+  app.set('views', config.root + '/app/views');
   app.engine('html', require('ejs').renderFile);
   app.set('view engine', 'html');
   app.disable('x-powered-by');
   app.use(morgan('dev'));
   app.use(compression());
   app.use(bodyParser.json());
-  app.use(bodyParser.urlencoded({ extended: false }));
+  app.use(bodyParser.urlencoded({ extended: true }));
   app.use(methodOverride());
   app.use(cookieParser());
 
@@ -56,7 +60,7 @@ configure.defaultCall = function (app) {
    *  Static file.
    */
 
-  app.set('public', path.resolve('client/app'));
+  app.set('public', path.resolve('app/views'));
   app.use(express.static(app.get('public')));
 
 

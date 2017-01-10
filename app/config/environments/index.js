@@ -24,13 +24,13 @@ var config = {
 	ip: process.env.IP || 'localhost',
 
 	db: {
-		url: 'mongodb://localhost:27017/luna_dev'
+		url: 'mongodb://localhost:27017/' + DB_NAME
 	},
 
 	seedDB: false,
 
 	secret: {
-		session: 'luna-secret'
+		session: ''
 	}
 
 };
